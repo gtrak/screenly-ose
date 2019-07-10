@@ -4,17 +4,16 @@ python:
 virtualenv:
   system_site_packages: true
 addons:
-  firefox: "45.0"
+  firefox: "67.0"
   apt:
     packages:
       - net-tools
       - mplayer
+      - python-gi
       - python-gobject
+      - python-gobject-2
       - python-setuptools
-before_install:
-  - sudo add-apt-repository ppa:mc3man/trusty-media -y
-  - sudo apt-get update -q
-  - sudo apt-get install ffmpeg
+      - ffmpeg
 install:
   - pip install -U pip
   - pip install -r requirements.txt
@@ -45,4 +44,4 @@ script:
   - bash static/spec/runner.sh
 
 sudo: false
-dist: trusty
+dist: bionic
